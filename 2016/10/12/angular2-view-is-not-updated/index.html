@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Angular2 에서 View 가 갱신되지 않아요 | Hexo</title>
+    <title>Angular2 에서 View 가 갱신되지 않아요 | 그냥 이것 저것 정리하기</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
         <meta name="keywords" content="" />
@@ -17,7 +17,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Angular2 에서 View 가 갱신되지 않아요">
 <meta property="og:url" content="https://jongmoon.github.io/blog/2016/10/12/angular2-view-is-not-updated/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="그냥 이것 저것 정리하기">
 <meta property="og:description" content="이슈Model(data)를 분명히! 갱신했음에도 불구하고 해당 데이터가 바인딩된 View 가 갱신되지 않았습니다. 레퍼런스나 값을 변경하면 이 똑똑한 Angular2 가 알아서 화면에 그려주는데 당췌 갱신하질 않습니다.
 
 원인을 파악하기 위해 다음과 같이 상황을 단순화 시켜보았습니다.
@@ -35,8 +35,6 @@
 12345">
     
 
-    
-        <link rel="alternate" href="/" title="Hexo" type="application/atom+xml" />
     
 
     
@@ -75,21 +73,17 @@
                         <ul id="main-nav">
                             
                                 <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/blog/">Inici</a>
+                                    <a class="main-nav-list-link" href="/blog/">Home</a>
                                 </li>
                             
                                         
                                     
-                                <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/blog/about/index.html">Quant a</a>
-                                </li>
-                            
                         </ul>
                         <nav id="sub-nav">
                             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Cercar" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -110,8 +104,8 @@
         TRANSLATION: {
             POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'categories',
-            TAGS: 'etiquetes',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/blog/',
@@ -137,7 +131,7 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    Sense categoria
+    uncategorized
     </h1>
 </div>
                         <div class="main-body-content">
@@ -198,7 +192,7 @@
 
 
 
-    <a data-url="https://jongmoon.github.io/blog/blog/2016/10/12/angular2-view-is-not-updated/" data-id="ciucryv9d00001z1losnr2ouq" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="https://jongmoon.github.io/blog/blog/2016/10/12/angular2-view-is-not-updated/" data-id="ciucrztmk00007m1lg4pqgvo3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -277,56 +271,8 @@
                     <aside id="sidebar">
     <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
     <div class="sidebar-top">
-        <p>seguir:</p>
+        <p>follow:</p>
         <ul class="social-links">
-            
-                
-                <li>
-                    <a class="social-tooltip" title="twitter" href="/blog/" target="_blank">
-                        <i class="icon fa fa-twitter"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="facebook" href="/blog/" target="_blank">
-                        <i class="icon fa fa-facebook"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="google-plus" href="/blog/" target="_blank">
-                        <i class="icon fa fa-google-plus"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank">
-                        <i class="icon fa fa-github"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="weibo" href="/blog/" target="_blank">
-                        <i class="icon fa fa-weibo"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="rss" href="/blog/" target="_blank">
-                        <i class="icon fa fa-rss"></i>
-                    </a>
-                </li>
-                
             
         </ul>
     </div>
@@ -336,7 +282,7 @@
     
     
         <a href="/blog/2016/10/09/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">antic</strong>
+        <strong class="article-nav-caption">older</strong>
         <p class="article-nav-title">Hello World</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
@@ -403,7 +349,7 @@
             
                 
     <div class="widget-wrap widget-list">
-        <h3 class="widget-title">arxius</h3>
+        <h3 class="widget-title">archives</h3>
         <div class="widget">
             <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/10/">October 2016</a><span class="archive-list-count">2</span></li></ul>
         </div>
