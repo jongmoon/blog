@@ -3,36 +3,30 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Angular2 에서 View 가 갱신되지 않아요 | 그냥 이것 저것 정리하기</title>
+    <title>ngStyle 로 스타일이 반영되지 않아요. | 그냥 이것 저것 정리하기</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="" />
+        <meta name="keywords" content="angular2, ng2, ngStyle" />
     
-    <meta name="description" content="이슈Model(data)를 분명히! 갱신했음에도 불구하고 해당 데이터가 바인딩된 View 가 갱신되지 않았습니다. 레퍼런스나 값을 변경하면 이 똑똑한 Angular2 가 알아서 화면에 그려주는데 당췌 갱신하질 않습니다.
-
-원인을 파악하기 위해 다음과 같이 상황을 단순화 시켜보았습니다.
-
-상황myService 에는 다음과 같은 데이터를 제공합니다.
-12345">
+    <meta name="description" content="상황Angular2 에서는 element 개별 속성을 지정하기 위해서 다음과 같은 문법을 사용할 수 있습니다. (단위가 붙어 있으니 조금 이상하긴 합니다.)
+1&amp;lt;div [style.left.px]=&quot;100&quot;&amp;gt;&amp;lt;/div&amp;gt;
+그러나 적용하고자 하는 속성이 여러개인 경우 [ngStyle] 문법을 사용하게 되는데요.
+다음과 같은식입니다.템플릿1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Angular2 에서 View 가 갱신되지 않아요">
-<meta property="og:url" content="https://jongmoon.github.io/blog/2016/10/12/angular2-view-is-not-updated/index.html">
+<meta property="og:title" content="ngStyle 로 스타일이 반영되지 않아요.">
+<meta property="og:url" content="https://jongmoon.github.io/blog/2016/10/27/ngstyle-is-not-applied/index.html">
 <meta property="og:site_name" content="그냥 이것 저것 정리하기">
-<meta property="og:description" content="이슈Model(data)를 분명히! 갱신했음에도 불구하고 해당 데이터가 바인딩된 View 가 갱신되지 않았습니다. 레퍼런스나 값을 변경하면 이 똑똑한 Angular2 가 알아서 화면에 그려주는데 당췌 갱신하질 않습니다.
-
-원인을 파악하기 위해 다음과 같이 상황을 단순화 시켜보았습니다.
-
-상황myService 에는 다음과 같은 데이터를 제공합니다.
-12345">
-<meta property="og:updated_time" content="2016-10-18T09:02:01.000Z">
+<meta property="og:description" content="상황Angular2 에서는 element 개별 속성을 지정하기 위해서 다음과 같은 문법을 사용할 수 있습니다. (단위가 붙어 있으니 조금 이상하긴 합니다.)
+1&amp;lt;div [style.left.px]=&quot;100&quot;&amp;gt;&amp;lt;/div&amp;gt;
+그러나 적용하고자 하는 속성이 여러개인 경우 [ngStyle] 문법을 사용하게 되는데요.
+다음과 같은식입니다.템플릿1">
+<meta property="og:updated_time" content="2016-10-28T02:53:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Angular2 에서 View 가 갱신되지 않아요">
-<meta name="twitter:description" content="이슈Model(data)를 분명히! 갱신했음에도 불구하고 해당 데이터가 바인딩된 View 가 갱신되지 않았습니다. 레퍼런스나 값을 변경하면 이 똑똑한 Angular2 가 알아서 화면에 그려주는데 당췌 갱신하질 않습니다.
-
-원인을 파악하기 위해 다음과 같이 상황을 단순화 시켜보았습니다.
-
-상황myService 에는 다음과 같은 데이터를 제공합니다.
-12345">
+<meta name="twitter:title" content="ngStyle 로 스타일이 반영되지 않아요.">
+<meta name="twitter:description" content="상황Angular2 에서는 element 개별 속성을 지정하기 위해서 다음과 같은 문법을 사용할 수 있습니다. (단위가 붙어 있으니 조금 이상하긴 합니다.)
+1&amp;lt;div [style.left.px]=&quot;100&quot;&amp;gt;&amp;lt;/div&amp;gt;
+그러나 적용하고자 하는 속성이 여러개인 경우 [ngStyle] 문법을 사용하게 되는데요.
+다음과 같은식입니다.템플릿1">
     
 
     
@@ -146,14 +140,14 @@ ga('send', 'pageview');
     </h1>
 </div>
                         <div class="main-body-content">
-                            <article id="post-angular2-view-is-not-updated" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-ngstyle-is-not-applied" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        Angular2 에서 View 가 갱신되지 않아요
+        ngStyle 로 스타일이 반영되지 않아요.
         </h1>
     
 
@@ -161,41 +155,33 @@ ga('send', 'pageview');
         
         
             <div class="article-subtitle">
-                <a href="/blog/2016/10/12/angular2-view-is-not-updated/" class="article-date">
-    <time datetime="2016-10-12T12:41:52.000Z" itemprop="datePublished">2016-10-12</time>
+                <a href="/blog/2016/10/27/ngstyle-is-not-applied/" class="article-date">
+    <time datetime="2016-10-27T14:01:54.000Z" itemprop="datePublished">2016-10-27</time>
 </a>
                 
+    <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/angular2-ng2-ngStyle/">angular2, ng2, ngStyle</a></li></ul>
+
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            <h2 id="이슈"><a href="#이슈" class="headerlink" title="이슈"></a>이슈</h2><p>Model(data)를 분명히! 갱신했음에도 불구하고 해당 데이터가 바인딩된 View 가 갱신되지 않았습니다. 레퍼런스나 값을 변경하면 이 똑똑한 Angular2 가 알아서 화면에 그려주는데 당췌 갱신하질 않습니다.</p>
+            <h2 id="상황"><a href="#상황" class="headerlink" title="상황"></a>상황</h2><p>Angular2 에서는 element 개별 속성을 지정하기 위해서 다음과 같은 문법을 사용할 수 있습니다. (단위가 붙어 있으니 조금 이상하긴 합니다.)</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> [<span class="attr">style.left.px</span>]=<span class="string">"100"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>그러나 적용하고자 하는 속성이 여러개인 경우 <a href="https://angular.io/docs/ts/latest/guide/template-syntax.html#!#ngStyle" target="_blank" rel="external">[ngStyle] 문법</a>을 사용하게 되는데요.</p>
+<p>다음과 같은식입니다.<br><strong>템플릿</strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> [<span class="attr">ngStyle</span>]=<span class="string">"setStyles()"</span>&gt;</span></div><div class="line">  absolute 로 지정한 DIV 영역</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><strong>컴포넌트 구현부</strong></p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">setStyles() &#123;</div><div class="line">  <span class="keyword">let</span> styles = &#123;</div><div class="line">    <span class="comment">// CSS property names</span></div><div class="line">    <span class="string">'left'</span>: <span class="string">'100'</span>,</div><div class="line">    <span class="string">'top'</span>: <span class="string">'100px'</span></div><div class="line">  &#125;;</div><div class="line">  <span class="keyword">return</span> styles;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>근데 이때 단위를 지정하지 않으면 속성이 반영되지 않는 이슈가 있습니다.</code></p>
+<p>위 예의 경우 left 속서 지정 시 <code>px</code>을 지정하지 않고 있는데요. 저 같은 경우엔 결과물에 아래와 같이 left 값이 노출되지 않아 원인 파악에 애를 먹었습니다.</p>
+<p><strong>위 내용이 반영된 결과물</strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"top:100px"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span> <span class="comment">&lt;!-- left 가 없어졌다!? --&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="해결"><a href="#해결" class="headerlink" title="해결"></a>해결</h2><p>반드시 단위를 지정해 줍니다.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">setStyles() &#123;</div><div class="line">  <span class="keyword">let</span> styles = &#123;</div><div class="line">    <span class="comment">// CSS property names</span></div><div class="line">    <span class="string">'left'</span>: <span class="string">'100px'</span>,<span class="comment">/*단위를 붙여야 결과물에 속성이 노출됩니다.*/</span></div><div class="line">    <span class="string">'top'</span>: <span class="string">'100px'</span></div><div class="line">  &#125;;</div><div class="line">  <span class="keyword">return</span> styles;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <blockquote>
-<p>원인을 파악하기 위해 다음과 같이 상황을 단순화 시켜보았습니다.</p>
+<p>단, html 에 doctype 을 지정하지 않아 quirks 모드로 동작하는 경우에는 단위를 제거해도 속성이 제대로 붙지만 권고사항은 아니므로 반드시 단위를 붙입니다.</p>
 </blockquote>
-<h2 id="상황"><a href="#상황" class="headerlink" title="상황"></a>상황</h2><p>myService 에는 다음과 같은 데이터를 제공합니다.</p>
-<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> keywords:<span class="built_in">Array</span>&lt;<span class="built_in">string</span>&gt; = [<span class="string">"keyword1"</span>, <span class="string">"keyword2"</span>, <span class="string">"keyword3"</span>];</div><div class="line"><span class="keyword">public</span> values:<span class="built_in">any</span> = &#123;</div><div class="line">  <span class="string">"keyword1"</span>: <span class="string">"first"</span>,</div><div class="line">  <span class="string">"keyword2"</span>: <span class="string">"second"</span>,</div><div class="line">  <span class="string">"keyword3"</span>: <span class="string">"third"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>View 에서는 keywords 를 순환하며 각 key 에 해당하는 values 를 화면에 노출합니다. 본 예제에서는 values 의 key 에 해당하는 값을 추출하기 위해 getPropertyValue 라는 <code>pure 한 파이프</code>를 사용합니다.(물론 굳이 그럴 필요는 없지만 그렇게 적용했습니다.)</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">tbody</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>key<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>value<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">tr</span> *<span class="attr">ngFor</span>=<span class="string">"let keyword of myService.keywords"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">strong</span>&gt;</span>&#123;&#123;keyword&#125;&#125;<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">strong</span>&gt;</span>&#123;&#123;myService.values | getPropertyValue:keyword&#125;&#125;<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure>
-<h2 id="문제-재현"><a href="#문제-재현" class="headerlink" title="문제 재현"></a>문제 재현</h2><p>문제는 values 의 값을 변경할 때 발생합니다.</p>
-<p>임의로 다음과 같이 값을 변경해 봅니다.<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">values[<span class="string">'keyword3'</span>] = <span class="string">"UPDATED"</span>;</div></pre></td></tr></table></figure></p>
-<p>분명 keyword3을 키로 갖는 values 값이 UPDATED 로 변경되었습니다. 그러나 화면에 갱신이 되지 않습니다.</p>
-<h2 id="원인"><a href="#원인" class="headerlink" title="원인"></a>원인</h2><p>처음에는 변경한 대상이 ngFor 에서 iteration 하고 있는 대상인 keywords 이 아니라 values 이기 때문이라고 오해했습니다만 실상은 그렇지 않았습니다.</p>
-<p>getPropertyValue 라는 <code>pure한 파이프</code>가 문제였습니다.</p>
-<p><code>ngFor</code> 처럼 Object 의 레퍼런스 혹은 그 레퍼런스에 속한 값이 변경된 경우 변경을 감지할 것이라는 기대를 했었건만… <code>pure 한 파이프</code>는 그렇게 동작하지 않았습니다.</p>
-<p>파이프가 바라보던 myService.values 의 레퍼런스가 변경되지 않았기 때문입니다. values 의 keyword3 속성의 값은 분명 변경했지만 values 자체의 레퍼런스는 바뀌지 않은 것입니다.</p>
-<p>pure 한 Pipe 는 자신이 연결된 값을 비교(===)하여 변경되지 않으면 파이프를 수행하지 않습니다. (<a href="https://angular.io/docs/ts/latest/guide/pipes.html" target="_blank" rel="external">https://angular.io/docs/ts/latest/guide/pipes.html</a> 페이지에서 Pure 와 Impure Pipes 참고)</p>
-<h2 id="해결방법"><a href="#해결방법" class="headerlink" title="해결방법"></a>해결방법</h2><p>다음 중 어느 방법으로도 해결할 수 있습니다.</p>
-<p><strong>1. 파이프를 대체할 수 있는 경우 파이프를 사용하지 않습니다.</strong></p>
-<p>위 상황의 경우 굳이 파이프를 쓸 필요가 없습니다. 아래와 같이 [keyword] 로 변경합니다.<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">strong</span>&gt;</span>&#123;&#123;myService.values[keyword]&#125;&#125;<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p><strong>2. values 의 레퍼런스를 변경합니다.</strong></p>
-<p>만약 파이프를 사용해야 하는 경우라면 values 의 레퍼런스를 변경합니다.<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">values = <span class="built_in">Object</span>.assign(&#123;&#125;, values);</div></pre></td></tr></table></figure></p>
-<p><strong>3. Pipe 를 Impure 로 생성합니다.</strong></p>
-<p>기존 Pipe 에서 pure 속성을 false 로 변경해주면 Impure 하게 변경됩니다.</p>
-<figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">@Pipe(&#123;</div><div class="line">  name: <span class="string">'getPropertyValue'</span>,</div><div class="line">  pure: <span class="literal">false</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> MyPipe &#123;</div><div class="line">  transform(obj, prop) &#123;</div><div class="line">    <span class="keyword">return</span> obj[prop];</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>그러나 이 방식은 값이 변경여부를 체크하지 않고 항상 파이프를 수행하기 때문에 대부분의 상황에서는 성능상 이슈가 생길 수 있습니다.</p>
-<h2 id="인사이트"><a href="#인사이트" class="headerlink" title="인사이트"></a>인사이트</h2><p>파이프를 Primitive 타입이 아닌 Object 에 적용하는 경우 주의가 필요하겠습니다.</p>
-<h2 id="확인-가능한-예제"><a href="#확인-가능한-예제" class="headerlink" title="확인 가능한 예제"></a>확인 가능한 예제</h2><p><a href="https://plnkr.co/edit/Pf7Euer6dXiAnlULAQhw?p=preview" target="_blank" rel="external">https://plnkr.co/edit/Pf7Euer6dXiAnlULAQhw?p=preview</a></p>
+<h2 id="회고"><a href="#회고" class="headerlink" title="회고"></a>회고</h2><p>Angular2 를 하다보면 이렇게 에러나 경고 없이 의도하지 않은 동작을 보여주는 경우가 있는데요. 참 사용하기 쉬우면서도 이런 부분이 살짝살짝 발목을 잡네요.</p>
+<p>차후에 이런 부분을 쉽게 디버깅할 수 있도록 Angular Core 쪽을 분석을 해봐야겠다는 생각을 합니다.</p>
+<h2 id="실습-예제"><a href="#실습-예제" class="headerlink" title="실습 예제"></a>실습 예제</h2><p><a href="https://plnkr.co/edit/v6qgSfi349gMYzbCwROm?p=preview" target="_blank" rel="external">https://plnkr.co/edit/v6qgSfi349gMYzbCwROm?p=preview</a></p>
 
         </div>
         <footer class="article-footer">
@@ -203,7 +189,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="https://jongmoon.github.io/blog/blog/2016/10/12/angular2-view-is-not-updated/" data-id="ciut6ofi30003x01lbdroo5qc" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://jongmoon.github.io/blog/blog/2016/10/27/ngstyle-is-not-applied/" data-id="ciut6ofht0000x01l8fxkas7k" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -291,16 +277,12 @@ ga('send', 'pageview');
         
 <nav id="article-nav">
     
-        <a href="/blog/2016/10/17/angular2-karma-testing-environment-setting-difficulties/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            Angular2 Quick Start 소스를 참고하여 Karma 테스팅 환경 설정해 보기
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
+        <a href="/blog/2016/10/25/doctype-and-position-absolute/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">position absolute 와 doctype 에 따른 height 이슈</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
     
 </nav>
 
@@ -474,7 +456,7 @@ ga('send', 'pageview');
     var disqus_shortname = 'jongmoon';
     
     
-    var disqus_url = 'https://jongmoon.github.io/blog/blog/2016/10/12/angular2-view-is-not-updated/';
+    var disqus_url = 'https://jongmoon.github.io/blog/blog/2016/10/27/ngstyle-is-not-applied/';
     
     (function() {
     var dsq = document.createElement('script');
