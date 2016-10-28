@@ -1,7 +1,7 @@
 ---
 title: ngStyle 로 스타일이 반영되지 않아요.
 date: 2016-10-27 23:01:54
-tags:
+tags: angular2, ng2, ngStyle
 ---
 
 ## 상황
