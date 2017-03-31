@@ -17,7 +17,7 @@
 <meta property="og:description" content="OnPush 개요Angular 는 기본적으로 모든 Component 노드에 대해 Change Detection 을 한다. 그러나 OnPush 전략을 사용하면 컴포넌트에 바인딩된 Input 값의 변화가 없는 경우에는 Subtree 에 대해 Change Detection 을 하지 않아 비교처리를 줄일 수 있다.
 동작 방식 (ChangeDetector 상태값)S">
 <meta property="og:image" content="https://jongmoon.github.io/blog/AppView.detectChanges.png">
-<meta property="og:updated_time" content="2017-02-13T06:41:32.000Z">
+<meta property="og:updated_time" content="2017-03-31T11:51:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OnPush 동작 방식 이해">
 <meta name="twitter:description" content="OnPush 개요Angular 는 기본적으로 모든 Component 노드에 대해 Change Detection 을 한다. 그러나 OnPush 전략을 사용하면 컴포넌트에 바인딩된 Input 값의 변화가 없는 경우에는 Subtree 에 대해 Change Detection 을 하지 않아 비교처리를 줄일 수 있다.
@@ -163,14 +163,15 @@ ga('send', 'pageview');
 <h2 id="동작-방식-ChangeDetector-상태값"><a href="#동작-방식-ChangeDetector-상태값" class="headerlink" title="동작 방식 (ChangeDetector 상태값)"></a>동작 방식 (ChangeDetector 상태값)</h2><h3 id="Subtree-의-Change-detection-이-발생하지-않는-이유"><a href="#Subtree-의-Change-detection-이-발생하지-않는-이유" class="headerlink" title="Subtree 의 Change detection 이 발생하지 않는 이유"></a>Subtree 의 Change detection 이 발생하지 않는 이유</h3><p>OnPush 가 적용된 컴포넌트에서 유발한 Change Detection 이 아닌 경우 아래와 같이 Change Detector 상태값(<code>this.cdMode</code>)이 <code>Checked</code> 상태가 되어 그 하위 View (Subtree) 들에 대한 change detecting 을 하지 않는 것이다.</p>
 <p><img src="AppView.detectChanges.png" alt=""></p>
 <p>그렇다면 이 상태값은 어떤 절차에 의해 변경되는 것인가?</p>
-<h3 id="Change-Detector-상태값의-변화-과정"><a href="#Change-Detector-상태값의-변화-과정" class="headerlink" title="Change Detector 상태값의 변화 과정"></a>Change Detector 상태값의 변화 과정</h3><p>  1) OnPush 가 적용된 컴포넌트와<br>  2) 적용되지 않은 컴포넌트가 구현된 예제에서 </p>
-<p>Input 의 변경이 발생했을때 OnPush 가 적용된 컴포넌트의 Change Detection 상태 값을 비교해보자.</p>
-<h4 id="OnPush-가-적용된-컴포넌트의-Input-값이-변경된-경우"><a href="#OnPush-가-적용된-컴포넌트의-Input-값이-변경된-경우" class="headerlink" title="OnPush 가 적용된 컴포넌트의 Input 값이 변경된 경우"></a>OnPush 가 적용된 컴포넌트의 Input 값이 변경된 경우</h4><p><strong>컴포넌트의 값 변경 시마다 CheckOnce 를 설정</strong></p>
+<h3 id="Change-Detector-상태값의-변화-과정"><a href="#Change-Detector-상태값의-변화-과정" class="headerlink" title="Change Detector 상태값의 변화 과정"></a>Change Detector 상태값의 변화 과정</h3><p>컴포넌트에 다음과 같은 컴포넌트가 있다고 가정하자.</p>
+<p>  1) OnPush 가 적용된 컴포넌트 - A<br>  2) OnPush 가 적용되지 않은 컴포넌트 - B</p>
+<p>위 2가지를 포함하는 컴포넌트에서<br>Input 의 변경이 발생했을때 OnPush 가 적용된 컴포넌트(A)의 Change Detection 상태 값을 비교해보자.</p>
+<h4 id="OnPush-가-적용된-컴포넌트-A-의-Input-값이-변경된-경우"><a href="#OnPush-가-적용된-컴포넌트-A-의-Input-값이-변경된-경우" class="headerlink" title="OnPush 가 적용된 컴포넌트(A)의 Input 값이 변경된 경우"></a>OnPush 가 적용된 컴포넌트(A)의 Input 값이 변경된 경우</h4><p><strong>컴포넌트의 값 변경 시마다 CheckOnce 를 설정</strong></p>
 <p>OnPush 가 적용된 컴포넌트에 Change Detection 이 trigger 되면 <code>markPathToRootAsCheckOnce</code> 를 호출하여 <code>CheckOnce</code> 상태로 변경한다.</p>
 <p>&lt;코드. 컴포넌트가 트랜스파일링된 코드 발췌&gt;<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">View_OnPushCmp0.prototype.handleEvent_11 = <span class="function"><span class="keyword">function</span>(<span class="params">eventName,$event</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> self = <span class="keyword">this</span>;</div><div class="line">  self.debug(<span class="number">11</span>,<span class="number">8</span>,<span class="number">6</span>);</div><div class="line">  self.markPathToRootAsCheckOnce();<span class="comment">//cd(Change detection)모드를 CheckOnce 로 설정</span></div><div class="line">  <span class="keyword">var</span> result = <span class="literal">true</span>;</div><div class="line">  result = (self._DefaultValueAccessor_11_3.handleEvent(eventName,$event) &amp;&amp; result);</div><div class="line">  <span class="keyword">if</span> ((eventName == <span class="string">'ngModelChange'</span>)) &#123;</div><div class="line">    <span class="keyword">var</span> pd_sub_0 = ((self.context.profile.first = $event) !== <span class="literal">false</span>);</div><div class="line">    result = (pd_sub_0 &amp;&amp; result);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> result;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p>변경 시 최소 한번은 Check 하도록 하는 것이다.<br>따라서 위(Subtree 의 Change detection 이 발생하지 않는 이유)에서 언급한 것처럼 Subtree 의 Change Detection 을 Skip 하지않는다.</p>
+<p>변경 시 최소 한번은 Check 하도록 하므로 Change Detection 이 발생한다.<br>즉 위에서 언급한 것처럼 Subtree 의 Change Detection 을 Skip 하지않는다.</p>
 <p><img src="AppView.detectChanges.CheckOnce.png" alt=""></p>
-<h3 id="OnPush-가-적용되지-않은-컴포넌트의-Input-값의-변경된-경우"><a href="#OnPush-가-적용되지-않은-컴포넌트의-Input-값의-변경된-경우" class="headerlink" title="OnPush 가 적용되지 않은 컴포넌트의 Input 값의 변경된 경우"></a>OnPush 가 적용되지 않은 컴포넌트의 Input 값의 변경된 경우</h3><p>반면 OnPush 가 적용되지 않은 컴포넌트에서 Change Detection 이 발생한 경우 Change Detector 의 상태값은 Checked 상태로 유지되어 Subtree 컴포넌트의 Change Detecting 과정을 건너띄게 된다.</p>
+<h3 id="OnPush-가-적용되지-않은-컴포넌트-B-의-Input-값이-변경된-경우"><a href="#OnPush-가-적용되지-않은-컴포넌트-B-의-Input-값이-변경된-경우" class="headerlink" title="OnPush 가 적용되지 않은 컴포넌트(B)의 Input 값이 변경된 경우"></a>OnPush 가 적용되지 않은 컴포넌트(B)의 Input 값이 변경된 경우</h3><p>반면 OnPush 가 적용되지 않은 컴포넌트에서 Change Detection 이 발생한 경우,<br><code>OnPush 가 적용된 컴포넌트(A)의 Change Detector 의 상태값</code>은 여전히 Checked 상태로 유지되어 Subtree 컴포넌트의 Change Detecting 과정을 건너띄게 된다.</p>
 <p><img src="AppView.detectChanges.Checked.png" alt=""></p>
 <blockquote>
 <p>CD 의 상태값이 Checked 상태로 변경한 것은 CheckOnce 로 변경된 후 Subtree 의 Change Detection 시점에 Checked 로 변경하는 것이다.(위 코드에서의 주석참고)</p>
@@ -188,7 +189,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="https://jongmoon.github.io/blog/blog/2017/02/13/ng-onpush-mechanism/" data-id="ciz3qkpz80009oaw6w5gwfg45" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://jongmoon.github.io/blog/blog/2017/02/13/ng-onpush-mechanism/" data-id="cj0xrnt2n000292w6v4i938i8" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
